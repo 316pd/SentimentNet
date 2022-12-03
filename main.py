@@ -9,6 +9,7 @@ import emoji
 nltk.download('punkt')
 
 
+
 class SentimentNet(nn.Module):
     def __init__(self, vocab_size, output_size, embedding_dim, hidden_dim, n_layers, drop_prob=0.5):
         super(SentimentNet, self).__init__()
