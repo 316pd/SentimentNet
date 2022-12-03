@@ -59,7 +59,7 @@ def pad_input(sentences, seq_len):
             features[ii, -len(review):] = np.array(review)[:seq_len]
     return features
 
-st.title('Polarity of Review')
+st.title('SentimentNet : Predict Polarity of Review')
 review = st.text_input("Reviews:", value="")
 sent = [review,"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 for i, review in enumerate(sent):
@@ -79,6 +79,6 @@ if st.button('Predict'):
         pred = torch.round(output.squeeze())  # Rounds the output to 0/1
         break
     if int(pred[0].item()) == 0:
-        st.write('Given Review is Negative ' + "U+2639")
+        st.header('Given Review is Negative ' + emoji.emojize(":pensive_face:"))
     else:
-        st.write('Given Review is Positive '+ emoji.emojize(":grinning_face_with_big_eyes:"))
+        st.header('Given Review is Positive '+ emoji.emojize(":grinning_face_with_big_eyes:"))
